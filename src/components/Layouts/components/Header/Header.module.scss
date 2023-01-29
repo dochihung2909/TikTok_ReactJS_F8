@@ -1,13 +1,184 @@
+%btn {
+    display: flex;
+    cursor: pointer;
+}
+
+%center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button,
+input,
+[tabindex] {
+    outline: none;
+    border: none;
+    background: transparent;
+}
+
+a[href] {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+@keyframes circle {
+    from {
+        transform: translateY(-6px) rotate(0deg);
+    }
+    to {
+        transform: translateY(-6px) rotate(360deg);
+    }
+}
+
 .wrapper {
+    --caret-color: rgb(254, 44, 85);
+    --search-height: 46px;
+    --search-btn-width: 52px;
+
     width: 100%;
     height: var(--default-layout-header-height);
     box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
     display: flex;
     justify-content: center;
-}
 
-.inner {
-    height: 100%;
-    width: var(--default-layout-width);
-    background-color: #ccc;
+    .inner {
+        @extend %center;
+        justify-content: space-between;
+        height: 100%;
+        padding: 0 20px;
+        width: var(--default-layout-width);
+
+        .logo {
+        }
+    }
+
+    .search {
+        @extend %center;
+        background-color: rgba(22, 24, 35, 0.06);
+        width: 361px;
+        padding-left: 16px;
+        height: var(--search-height);
+        border-radius: 92px;
+        overflow: hidden;
+        border: 1px solid transparent;
+        position: relative;
+
+        &:focus-within {
+            border-color: rgba(22, 24, 35, 0.2);
+        }
+
+        .search-bar {
+            font-family: 'IBM Plex Sans', ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+            font-size: 1.6rem;
+            line-height: 2.2rem;
+            caret-color: var(--caret-color);
+            color: var(--text-color);
+            height: 100%;
+            flex: 1;
+        }
+
+        .search-bar:not(:placeholder-shown) ~ .search-btn {
+            color: rgba(22, 24, 35, 0.75);
+        }
+
+        .clear,
+        .loading {
+            color: var(--secondary-color);
+            font-size: 1.4rem;
+            position: absolute;
+            right: calc(var(--search-btn-width));
+            top: 50%;
+            transform: translateY(-50%);
+            margin: 0 16px;
+        }
+
+        .clear {
+            @extend %btn;
+            z-index: 1;
+            display: none;
+
+            &:hover {
+                color: rgb(126, 126, 126);
+                transition: all 0.3s ease;
+            }
+        }
+
+        .loading {
+            // animation: circle 1s infinite linear;
+        }
+
+        .search-btn {
+            @extend %btn;
+            font-size: 2rem;
+            color: var(--secondary-color);
+            padding: 11px 16px;
+            position: relative;
+            width: var(--search-btn-width);
+
+            &:hover {
+                background: rgba(22, 24, 35, 0.03);
+            }
+
+            &:active {
+                background: rgba(22, 24, 35, 0.06);
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 1px;
+                height: calc(var(--search-height) - 18px);
+                background: rgba(22, 24, 35, 0.12);
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+
+    .action {
+        display: flex;
+        .upload {
+            @extend %btn, %center;
+            min-width: 110px;
+            height: 36px;
+            padding: 0 16px;
+            border: 1px solid rgba(22, 24, 35, 0.12);
+            border-radius: 2px;
+            font-size: 1.6rem;
+            font-weight: bold;
+
+            .upload-icon {
+                font-size: 1.8rem;
+                margin: 0 8px 2px 0;
+            }
+        }
+
+        %option-btn {
+            @extend %btn, %center;
+            margin-left: 16px;
+        }
+
+        .login {
+            @extend %option-btn;
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #fff;
+            min-width: 100px;
+            background: rgba(254, 44, 85, 1);
+            border-radius: 4px;
+        }
+
+        .make-effect-btn {
+            @extend %option-btn;
+        }
+
+        .options {
+            @extend %option-btn;
+            color: var(--secondary-color);
+            font-size: 2rem;
+            padding: 0 4px;
+        }
+    }
 }

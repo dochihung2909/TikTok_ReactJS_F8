@@ -50,6 +50,8 @@
 :root {
     --default-layout-header-height: 60px;
     --default-layout-width: 1150px;
+    --text-color: rgb(22, 24, 35);
+    --secondary-color: #a7a7ab;
 }
 
 * {
@@ -63,7 +65,7 @@ html {
 }
 
 body {
-    font-family: ProximaNova, SofiaPro;
+    font-family: 'IBM Plex Sans', ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
