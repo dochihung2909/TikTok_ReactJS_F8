@@ -3,6 +3,7 @@ import classNames from 'classnames/bind'
 
 import Header from '~/components/Layouts/components/Header'
 import Sidebar from './Sidebar'
+import Button from '~/components/Button'
 
 const cx = classNames.bind(styles)
 
@@ -14,6 +15,14 @@ function DefaultLayout({ children }) {
                 <Sidebar></Sidebar>
                 <div className={cx('content')}>{children}</div>
             </div>
+
+            <Button
+                className={cx('back-to-top')}
+                rounded
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            >
+                Get app
+            </Button>
         </div>
     )
 }

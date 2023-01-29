@@ -16,11 +16,12 @@ import {
 
 import { Wrapper as PopperWrapper } from '~/components/Popper'
 import AccountItem from '~/components/AccountItem'
+import Button from '~/components/Button'
 
 const cx = classNames.bind(styles)
 
 function Header() {
-    const [searchResults, setSearchResults] = useState([1, 2, 3])
+    const [searchResults, setSearchResults] = useState([])
 
     useEffect(() => {}, [])
 
@@ -62,11 +63,13 @@ function Header() {
                     </div>
                 </Tippy>
                 <div className={cx('action')}>
-                    <button className={cx('upload')}>
-                        <FontAwesomeIcon className={cx('upload-icon')} icon={faPlus}></FontAwesomeIcon>
-                        Upload
-                    </button>
-                    <button className={cx('login')}>Login</button>
+                    <Button leftIcon={<FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>} normal medium>
+                        <span>Upload</span>
+                    </Button>
+                    <Button primary medium>
+                        Login
+                    </Button>
+                    {/* <button className={cx('login')}>Login</button> */}
                     <button className={cx('make-effect-btn')}>
                         <img src={images.makeEffect} />
                     </button>

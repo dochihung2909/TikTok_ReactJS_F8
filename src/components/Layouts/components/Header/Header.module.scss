@@ -9,19 +9,6 @@
     align-items: center;
 }
 
-button,
-input,
-[tabindex] {
-    outline: none;
-    border: none;
-    background: transparent;
-}
-
-a[href] {
-    color: var(--text-color);
-    text-decoration: none;
-}
-
 @keyframes circle {
     from {
         transform: translateY(-6px) rotate(0deg);
@@ -152,43 +139,14 @@ a[href] {
 
     .action {
         display: flex;
-        .upload {
-            @extend %btn, %center;
-            min-width: 110px;
-            height: 36px;
-            padding: 0 16px;
-            border: 1px solid rgba(22, 24, 35, 0.12);
-            border-radius: 2px;
-            font-size: 1.6rem;
-            font-weight: bold;
 
-            .upload-icon {
-                font-size: 1.8rem;
-                margin: 0 8px 2px 0;
-            }
-        }
-
-        %option-btn {
+        .make-effect-btn,
+        .options {
             @extend %btn, %center;
             margin-left: 16px;
         }
 
-        .login {
-            @extend %option-btn;
-            font-size: 1.6rem;
-            font-weight: bold;
-            color: #fff;
-            min-width: 100px;
-            background: rgba(254, 44, 85, 1);
-            border-radius: 4px;
-        }
-
-        .make-effect-btn {
-            @extend %option-btn;
-        }
-
         .options {
-            @extend %option-btn;
             color: var(--secondary-color);
             font-size: 2rem;
             padding: 0 4px;
