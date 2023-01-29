@@ -1,4 +1,5 @@
 @import 'normalize.css';
+@import url('https://fonts.google.com/specimen/IBM+Plex+Sans/tester');
 @font-face {
     font-family: 'SofiaPro';
     src: url(//lf16-tiktok-common.ttwstatic.com/obj/tiktok-web-common-sg/falcon/tiktok_fonts/sofiapro-bold.woff2)
@@ -51,7 +52,13 @@
     --default-layout-header-height: 60px;
     --default-layout-width: 1150px;
     --text-color: rgb(22, 24, 35);
+    --subtext-color: rgba(22, 24, 35, 0.5);
     --secondary-color: #a7a7ab;
+    --black: #000;
+    --white: #fff;
+    --hover-color: rgba(22, 24, 35, 0.03);
+
+    --check-color: rgb(32, 213, 236);
 }
 
 * {
