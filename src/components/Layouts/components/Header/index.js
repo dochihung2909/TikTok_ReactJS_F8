@@ -8,17 +8,34 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faCircleNotch,
     faCircleXmark,
+    faEarthAsia,
     faEllipsisVertical,
     faMagnifyingGlass,
     faPlus,
-    faSpinner,
 } from '@fortawesome/free-solid-svg-icons'
 
-import { Wrapper as PopperWrapper } from '~/components/Popper'
+import { Wrapper as PopperWrapper, Menu } from '~/components/Popper'
 import AccountItem from '~/components/AccountItem'
 import Button from '~/components/Button'
+import { faCircleQuestion, faKeyboard } from '@fortawesome/free-regular-svg-icons'
 
 const cx = classNames.bind(styles)
+
+const MENU_ITEMS = [
+    {
+        icon: <FontAwesomeIcon icon={faEarthAsia}></FontAwesomeIcon>,
+        title: 'English',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faCircleQuestion}></FontAwesomeIcon>,
+        title: 'Feedback and help',
+        to: '/feedback',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faKeyboard}></FontAwesomeIcon>,
+        title: 'Keyboard shortcuts',
+    },
+]
 
 function Header() {
     const [searchResults, setSearchResults] = useState([])
@@ -73,9 +90,11 @@ function Header() {
                     <button className={cx('make-effect-btn')}>
                         <img src={images.makeEffect} />
                     </button>
-                    <button className={cx('options')}>
-                        <FontAwesomeIcon icon={faEllipsisVertical}></FontAwesomeIcon>
-                    </button>
+                    <Menu items={MENU_ITEMS}>
+                        <button className={cx('options')}>
+                            <FontAwesomeIcon icon={faEllipsisVertical}></FontAwesomeIcon>
+                        </button>
+                    </Menu>
                 </div>
             </div>
         </header>

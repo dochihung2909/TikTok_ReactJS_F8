@@ -19,6 +19,16 @@
     }
 }
 
+.icon {
+    display: flex;
+    margin-bottom: 2px;
+
+    & > svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
 .icon + .title,
 .title + .icon {
     margin-left: 8px;

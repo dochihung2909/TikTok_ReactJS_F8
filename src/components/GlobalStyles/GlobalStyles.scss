@@ -75,13 +75,14 @@ html {
 body {
     font-family: 'IBM Plex Sans', ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
     font-size: 1.6rem;
-    line-height: 1.5;
+    line-height: 2.2rem;
     text-rendering: optimizeSpeed;
 }
 
 button,
 input,
 [tabindex] {
+    font-family: 'IBM Plex Sans', ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
     outline: none;
     border: none;
     background: transparent;
@@ -89,4 +90,20 @@ input,
 
 a[href] {
     text-decoration: none;
+    color: var(--text-color);
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--white);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 9999px;
+    background: rgba(22, 24, 35, 0.06);
 }
