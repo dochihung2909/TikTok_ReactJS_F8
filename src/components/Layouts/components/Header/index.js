@@ -8,10 +8,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faCircleNotch,
     faCircleXmark,
+    faE,
     faEarthAsia,
     faEllipsisVertical,
     faMagnifyingGlass,
     faPlus,
+    faV,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { Wrapper as PopperWrapper, Menu } from '~/components/Popper'
@@ -25,6 +27,21 @@ const MENU_ITEMS = [
     {
         icon: <FontAwesomeIcon icon={faEarthAsia}></FontAwesomeIcon>,
         title: 'English',
+        children: {
+            title: 'Language',
+            data: [
+                {
+                    code: 'en',
+                    title: 'English',
+                    icon: <FontAwesomeIcon icon={faE}></FontAwesomeIcon>,
+                },
+                {
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                    icon: <FontAwesomeIcon icon={faV}></FontAwesomeIcon>,
+                },
+            ],
+        },
     },
     {
         icon: <FontAwesomeIcon icon={faCircleQuestion}></FontAwesomeIcon>,

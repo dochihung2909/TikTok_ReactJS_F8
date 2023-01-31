@@ -59,6 +59,7 @@
     --hover-color: rgba(22, 24, 35, 0.03);
     --check-color: rgb(32, 213, 236);
     --primary-btn-color: rgba(254, 44, 85, 1);
+    --default-layout-horizontal-spacer: 24px;
 }
 
 * {
@@ -94,7 +95,7 @@ a[href] {
 }
 
 ::-webkit-scrollbar {
-    width: 6px;
+    width: 0px;
 }
 
 /* Track */

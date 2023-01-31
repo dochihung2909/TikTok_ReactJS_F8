@@ -34,7 +34,7 @@
         @extend %center;
         justify-content: space-between;
         height: 100%;
-        padding: 0 20px;
+        padding: 0 var(--default-layout-horizontal-spacer);
         width: var(--default-layout-width);
 
         .logo {
@@ -140,6 +140,10 @@
     .action {
         display: flex;
 
+        .make-effect-btn {
+            width: 32px;
+        }
+
         .make-effect-btn,
         .options {
             @extend %btn, %center;
@@ -147,9 +151,8 @@
         }
 
         .options {
-            color: var(--secondary-color);
-            font-size: 2rem;
-            padding: 0 4px;
+            font-size: 1.6rem;
+            padding: 0 8px 0 4px;
         }
     }
 }

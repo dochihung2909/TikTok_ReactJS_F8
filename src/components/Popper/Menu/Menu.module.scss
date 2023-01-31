@@ -1,6 +1,7 @@
 .menu-list {
     min-width: 224px;
 
+    // Menu Item
     .menu-item {
         padding: 10px 8px 10px 16px;
         height: 42px;
@@ -20,4 +21,30 @@
 
 .menu-popper {
     padding-bottom: 8px;
+}
+
+// Header
+.header {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-top: -8px;
+}
+
+.back-btn {
+    position: absolute;
+    left: 4px;
+    padding: 12px 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.header-title {
 }
