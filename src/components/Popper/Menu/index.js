@@ -6,14 +6,19 @@ import styles from './Menu.module.scss'
 
 import MenuItem from './MenuItem'
 import Header from './Header'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 
 const cx = classNames.bind(styles)
 
 function Menu({ items = [], children }) {
     const [history, setHistory] = useState([{ data: items }])
     const current = history[history.length - 1]
-    console.log(current)
+
+    const handleSubItem = (isParent, item) => {
+        if (isParent) {
+            setHistory((prev) => [...prev, item.children])
+        }
+    }
 
     const renderItem = () => {
         return current.data.map((item, index) => {
@@ -22,11 +27,8 @@ function Menu({ items = [], children }) {
                 <MenuItem
                     key={index}
                     data={item}
-                    onClick={() => {
-                        if (isParent) {
-                            setHistory((prev) => [...prev, item.children])
-                        }
-                    }}
+                    className={cx({ 'sub-item': history.length > 1 })}
+                    onClick={() => handleSubItem(isParent, item)}
                 ></MenuItem>
             )
         })
@@ -48,10 +50,13 @@ function Menu({ items = [], children }) {
                     </PopperWrapper>
                 </div>
             )}
-            visible
+            offset={[10, 10]}
             delay={[0, 700]}
             interactive
             placement="bottom-end"
+            onHide={() => {
+                setHistory([{ data: items }])
+            }}
         >
             {children}
         </Tippy>

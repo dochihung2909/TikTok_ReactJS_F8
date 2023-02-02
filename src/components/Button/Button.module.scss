@@ -1,7 +1,7 @@
 .wrapper {
     border-radius: 4px;
     font-size: 1.6rem;
-    font-weight: 700;
+    font-weight: 600;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,6 +27,11 @@
         width: 20px;
         height: 20px;
     }
+}
+
+.icon + .title {
+    flex: 1;
+    text-align: left;
 }
 
 .icon + .title,
@@ -60,6 +65,7 @@
 }
 
 .outline {
+    text-align: center;
     color: var(--primary-btn-color);
     border: 1px solid currentColor;
 
@@ -74,7 +80,6 @@
     border: 1px solid rgba(22, 24, 35, 0.12);
     border-radius: 2px;
     font-size: 1.6rem;
-    font-weight: 700;
 
     &:hover {
         background: var(--hover-color);
@@ -95,4 +100,61 @@
 .large {
     min-width: 112px;
     height: 48px;
+}
+
+// Toggle btn
+.toggle-wrapper {
+    margin-bottom: -2px;
+}
+
+.toggle-btn {
+    display: none;
+}
+
+.toggle-btn + label {
+    position: relative;
+    display: flex;
+    width: 44px;
+    height: 24px;
+    background-color: #ddd;
+    border-radius: 9999px;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+}
+
+.toggle-btn + label::after,
+.toggle-btn + label::before {
+    content: '';
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    bottom: 1px;
+    left: 1px;
+    display: block;
+    transition: all 0.4s ease;
+}
+
+.toggle-btn + label::after {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    top: 50%;
+    transform: translateY(-50%);
+    left: 2px;
+}
+
+.toggle-btn + label::before {
+    background-color: rgba(22, 24, 35, 0.12);
+    border-radius: 999px;
+}
+
+.toggle-btn:checked + label::after {
+    margin-left: 20px;
+}
+
+.toggle-btn:checked + label::before {
+    background-color: #8ce196;
 }

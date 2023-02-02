@@ -139,6 +139,7 @@
 
     .action {
         display: flex;
+        align-items: center;
 
         .make-effect-btn {
             width: 32px;
@@ -153,6 +154,28 @@
         .options {
             font-size: 1.6rem;
             padding: 0 8px 0 4px;
+        }
+
+        // Login
+        .user-action-btn {
+            font-size: 2rem;
+            cursor: pointer;
+            height: 32px;
+            padding: 0 8px;
+            color: var(--text-color);
+
+            margin-left: 8px;
+        }
+
+        .user-avatar {
+            padding: 0 8px;
+            cursor: pointer;
+            margin-left: 12px;
+            & > img {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+            }
         }
     }
 }

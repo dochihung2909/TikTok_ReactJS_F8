@@ -2,6 +2,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    .back-to-top {
+        position: fixed;
+        box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
+        bottom: 13px;
+        right: 24px;
+        font-weight: 700;
+        font-size: 1.4rem;
+        color: rgba(22, 24, 35, 0.75);
+
+        &:active {
+            border-color: rgba(22, 24, 35, 0.2);
+            background-color: rgba(22, 24, 35, 0.06);
+        }
+    }
 }
 
 .container {
@@ -14,16 +29,4 @@
 .content {
     flex: 1;
     background-color: #cfa;
-}
-
-.back-to-top {
-    position: fixed;
-    box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
-    bottom: 20px;
-    right: 20px;
-
-    &:active {
-        border-color: rgba(22, 24, 35, 0.2);
-        background-color: rgba(22, 24, 35, 0.06);
-    }
 }

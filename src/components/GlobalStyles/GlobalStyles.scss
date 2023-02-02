@@ -60,6 +60,7 @@
     --check-color: rgb(32, 213, 236);
     --primary-btn-color: rgba(254, 44, 85, 1);
     --default-layout-horizontal-spacer: 24px;
+    --tooltip-color: rgba(84, 84, 84, 0.92);
 }
 
 * {
@@ -90,6 +91,7 @@ input,
 }
 
 a[href] {
+    display: flex;
     text-decoration: none;
     color: var(--text-color);
 }
@@ -107,4 +109,26 @@ a[href] {
 ::-webkit-scrollbar-thumb {
     border-radius: 9999px;
     background: rgba(22, 24, 35, 0.06);
+}
+
+// Custom Tippy Tooltips
+body {
+    .tippy-box {
+        background-color: var(--tooltip-color);
+        font-size: 1.6rem;
+        font-weight: 600;
+        border-radius: 8px;
+    }
+
+    .tippy-content {
+        padding: 8px 9px;
+    }
+
+    .tippy-box[data-placement^='bottom'] > .tippy-arrow:before {
+        top: -8px;
+    }
+
+    .tippy-arrow:before {
+        color: var(--tooltip-color);
+    }
 }

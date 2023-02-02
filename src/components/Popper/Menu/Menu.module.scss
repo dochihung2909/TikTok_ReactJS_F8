@@ -8,7 +8,7 @@
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        font-weight: 700;
+        font-weight: 600;
         font-size: 1.6rem;
         width: 100%;
         border-radius: 0;
@@ -16,6 +16,12 @@
         &:hover {
             background-color: var(--hover-color);
         }
+    }
+
+    .sub-item {
+        font-weight: 400;
+        font-size: 1.4rem;
+        padding: 10px 24px;
     }
 }
 
@@ -46,5 +52,6 @@
     cursor: pointer;
 }
 
-.header-title {
+.separate {
+    border-top: 1px solid rgba(22, 24, 35, 0.12);
 }
