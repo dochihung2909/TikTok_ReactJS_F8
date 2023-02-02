@@ -160,11 +160,16 @@
         .user-action-btn {
             font-size: 2rem;
             cursor: pointer;
-            height: 32px;
-            padding: 0 8px;
+            display: flex;
+            padding: 3px;
+            align-items: center;
             color: var(--text-color);
 
-            margin-left: 8px;
+            margin-left: 16px;
+
+            &.inbox-icon {
+                padding: 0;
+            }
         }
 
         .user-avatar {

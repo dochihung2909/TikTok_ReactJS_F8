@@ -33,6 +33,8 @@ import { Wrapper as PopperWrapper, Menu } from '~/components/Popper'
 import AccountItem from '~/components/AccountItem'
 import Button from '~/components/Button'
 import Toggle from '~/components/Button/Toggle'
+import { InboxIcon, MessageIcon } from '~/components/Icons'
+import Image from '~/components/Image'
 
 const cx = classNames.bind(styles)
 
@@ -132,7 +134,7 @@ function Header() {
                         <input
                             type="text"
                             className={cx('search-bar')}
-                            placeholder="Search account and video"
+                            placeholder="Search accounts and videos"
                             spellCheck="false"
                         ></input>
                         <button className={cx('clear')}>
@@ -154,12 +156,12 @@ function Header() {
                             </Button>
                             <Tippy delay={[0, 150]} content={'Message'}>
                                 <button className={cx('user-action-btn')}>
-                                    <FontAwesomeIcon icon={faPaperPlane}></FontAwesomeIcon>
+                                    <MessageIcon />
                                 </button>
                             </Tippy>
                             <Tippy delay={[0, 150]} content={'Inbox'}>
-                                <button className={cx('user-action-btn')}>
-                                    <FontAwesomeIcon icon={faMessage}></FontAwesomeIcon>
+                                <button className={cx('user-action-btn', 'inbox-icon')}>
+                                    <InboxIcon />
                                 </button>
                             </Tippy>
                         </>
@@ -179,7 +181,7 @@ function Header() {
                     <Menu items={currentUser ? userMenu : MENU_ITEMS}>
                         {currentUser ? (
                             <button className={cx('user-avatar')}>
-                                <img
+                                <Image
                                     alt={currentUser.toString()}
                                     src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/22b18f0159ac27a4a517dd1fe8b34bac~c5_100x100.jpeg?x-expires=1675137600&x-signature=j5g8kSUgig2LYW33EJ3IUKKbBTM%3D"
                                 />
