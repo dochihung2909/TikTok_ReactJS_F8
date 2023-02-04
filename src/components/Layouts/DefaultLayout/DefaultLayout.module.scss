@@ -23,7 +23,7 @@
     width: var(--default-layout-width);
     display: flex;
     height: 1000px;
-    padding: 0 var(--default-layout-horizontal-spacer);
+    padding: 0 var(--default-layout-horizontal-spacer) 0 calc(var(--default-layout-horizontal-spacer) - 4px);
 }
 
 .content {

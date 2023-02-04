@@ -1,0 +1,116 @@
+%btn {
+    display: flex;
+    cursor: pointer;
+}
+
+%center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search,
+.search-result {
+    width: var(--search-width);
+}
+
+.search {
+    @keyframes circle {
+        from {
+            transform: translateY(-6px) rotate(0deg);
+        }
+        to {
+            transform: translateY(-6px) rotate(360deg);
+        }
+    }
+
+    @extend %center;
+    background-color: rgba(22, 24, 35, 0.06);
+    padding-left: 16px;
+    height: var(--search-height);
+    border-radius: 92px;
+    overflow: hidden;
+    border: 1px solid transparent;
+    position: relative;
+
+    &:focus-within {
+        border-color: rgba(22, 24, 35, 0.2);
+    }
+
+    .search-bar {
+        font-family: 'IBM Plex Sans', ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+        caret-color: var(--caret-color);
+        color: var(--text-color);
+        height: 100%;
+        flex: 1;
+        padding-right: 40px;
+    }
+
+    .search-bar:not(:placeholder-shown) ~ .search-btn {
+        color: rgba(22, 24, 35, 0.75);
+    }
+
+    .clear,
+    .loading {
+        color: var(--secondary-color);
+        font-size: 1.4rem;
+        position: absolute;
+        right: calc(var(--search-btn-width));
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0 16px;
+    }
+
+    .clear {
+        @extend %btn;
+        z-index: 1;
+
+        &:hover {
+            color: rgb(126, 126, 126);
+            transition: all 0.3s ease;
+        }
+    }
+
+    .loading {
+        // animation: circle 1s infinite linear;
+        display: none;
+    }
+
+    .search-btn {
+        @extend %btn;
+        font-size: 2rem;
+        color: var(--secondary-color);
+        padding: 11px 16px;
+        position: relative;
+        width: var(--search-btn-width);
+
+        &:hover {
+            background: var(--hover-color);
+        }
+
+        &:active {
+            background: rgba(22, 24, 35, 0.06);
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 1px;
+            height: calc(var(--search-height) - 18px);
+            background: rgba(22, 24, 35, 0.12);
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+}
+
+.search-result {
+    .search-title {
+        padding: 5px 12px;
+        font-size: 1.4rem;
+        color: var(--subtext-color);
+    }
+}

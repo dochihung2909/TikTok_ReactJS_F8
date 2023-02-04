@@ -9,15 +9,6 @@
     align-items: center;
 }
 
-@keyframes circle {
-    from {
-        transform: translateY(-6px) rotate(0deg);
-    }
-    to {
-        transform: translateY(-6px) rotate(360deg);
-    }
-}
-
 .wrapper {
     --caret-color: rgb(254, 44, 85);
     --search-height: 46px;
@@ -34,106 +25,10 @@
         @extend %center;
         justify-content: space-between;
         height: 100%;
-        padding: 0 var(--default-layout-horizontal-spacer);
+        padding: 0 var(--default-layout-horizontal-spacer) 0 calc(var(--default-layout-horizontal-spacer) - 4px);
         width: var(--default-layout-width);
 
         .logo {
-        }
-    }
-
-    .search,
-    .search-result {
-        width: var(--search-width);
-    }
-
-    .search {
-        @extend %center;
-        background-color: rgba(22, 24, 35, 0.06);
-        padding-left: 16px;
-        height: var(--search-height);
-        border-radius: 92px;
-        overflow: hidden;
-        border: 1px solid transparent;
-        position: relative;
-
-        &:focus-within {
-            border-color: rgba(22, 24, 35, 0.2);
-        }
-
-        .search-bar {
-            font-family: 'IBM Plex Sans', ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
-            font-size: 1.6rem;
-            line-height: 2.2rem;
-            caret-color: var(--caret-color);
-            color: var(--text-color);
-            height: 100%;
-            flex: 1;
-        }
-
-        .search-bar:not(:placeholder-shown) ~ .search-btn {
-            color: rgba(22, 24, 35, 0.75);
-        }
-
-        .clear,
-        .loading {
-            color: var(--secondary-color);
-            font-size: 1.4rem;
-            position: absolute;
-            right: calc(var(--search-btn-width));
-            top: 50%;
-            transform: translateY(-50%);
-            margin: 0 16px;
-        }
-
-        .clear {
-            @extend %btn;
-            z-index: 1;
-            display: none;
-
-            &:hover {
-                color: rgb(126, 126, 126);
-                transition: all 0.3s ease;
-            }
-        }
-
-        .loading {
-            // animation: circle 1s infinite linear;
-        }
-
-        .search-btn {
-            @extend %btn;
-            font-size: 2rem;
-            color: var(--secondary-color);
-            padding: 11px 16px;
-            position: relative;
-            width: var(--search-btn-width);
-
-            &:hover {
-                background: var(--hover-color);
-            }
-
-            &:active {
-                background: rgba(22, 24, 35, 0.06);
-            }
-
-            &::after {
-                content: '';
-                position: absolute;
-                width: 1px;
-                height: calc(var(--search-height) - 18px);
-                background: rgba(22, 24, 35, 0.12);
-                left: 0;
-                top: 50%;
-                transform: translateY(-50%);
-            }
-        }
-    }
-
-    .search-result {
-        .search-title {
-            padding: 5px 12px;
-            font-size: 1.4rem;
-            color: var(--subtext-color);
         }
     }
 
@@ -164,18 +59,35 @@
             padding: 3px;
             align-items: center;
             color: var(--text-color);
+            position: relative;
 
             margin-left: 16px;
 
             &.inbox-icon {
                 padding: 0;
             }
+
+            .badge {
+                position: absolute;
+                top: -7px;
+                left: 16px;
+                height: 2rem;
+                padding: 0 6px;
+                text-align: center;
+                min-width: 2rem;
+                line-height: 2.1rem;
+                background-color: var(--primary-btn-color);
+                border-radius: 10px;
+                color: var(--white);
+                font-size: 1.4rem;
+                font-weight: 700;
+            }
         }
 
         .user-avatar {
-            padding: 0 8px;
             cursor: pointer;
-            margin-left: 12px;
+            margin-left: 24px;
+            display: flex;
             & > img {
                 width: 32px;
                 height: 32px;
