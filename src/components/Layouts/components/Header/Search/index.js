@@ -17,19 +17,41 @@ function Search() {
     const [searchResults, setSearchResults] = useState([])
     const [searchValue, setSearchValue] = useState('')
     const [showResult, setShowResult] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const searchRef = useRef()
 
     useEffect(() => {
-        setTimeout(() => {
-            setSearchResults([1, 2])
-        }, 0)
-    }, [])
+        if (!searchValue) {
+            setSearchResults([])
+            return
+        }
+        setLoading(true)
+        // Call API
+        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)
+            .then((res) => res.json())
+            .then((res) => {
+                setSearchResults(res.data)
+                setLoading(false)
+            })
+            .catch(() => {
+                setLoading(false)
+            })
+    }, [searchValue])
 
     const handleClear = () => {
         setSearchValue('')
         setSearchResults([])
         searchRef.current.focus()
+    }
+
+    const handleInputSearch = (e) => {
+        const value = e.target.value
+        if (value == false) {
+            setSearchValue(value.trim())
+        } else {
+            setSearchValue(value)
+        }
     }
 
     const handleHideResult = () => {
@@ -42,8 +64,8 @@ function Search() {
                 <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                     <PopperWrapper>
                         <h3 className={cx('search-title')}>Accounts</h3>
-                        {searchResults.map((result, index) => (
-                            <AccountItem key={index}></AccountItem>
+                        {searchResults.map((result) => (
+                            <AccountItem key={result.id} data={result}></AccountItem>
                         ))}
                     </PopperWrapper>
                 </div>
@@ -61,15 +83,15 @@ function Search() {
                     className={cx('search-bar')}
                     placeholder="Search accounts and videos"
                     spellCheck="false"
-                    onInput={(e) => setSearchValue(e.target.value)}
+                    onInput={(e) => handleInputSearch(e)}
                     onFocus={() => setShowResult(true)}
                 ></input>
-                {!!searchValue && (
+                {!!searchValue && !loading && (
                     <button className={cx('clear')} onClick={handleClear}>
                         <FontAwesomeIcon icon={faCircleXmark}></FontAwesomeIcon>
                     </button>
                 )}
-                <FontAwesomeIcon className={cx('loading')} icon={faCircleNotch}></FontAwesomeIcon>
+                {loading && <FontAwesomeIcon className={cx('loading')} icon={faCircleNotch}></FontAwesomeIcon>}
                 <Tippy content="Search">
                     <button className={cx('search-btn')}>
                         <FontAwesomeIcon icon={faMagnifyingGlass}></FontAwesomeIcon>
