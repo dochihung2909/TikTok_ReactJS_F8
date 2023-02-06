@@ -2,14 +2,15 @@ import HeadlessTippy from '@tippyjs/react/headless'
 import { useState, useEffect, useRef } from 'react'
 import Tippy from '@tippyjs/react'
 import 'tippy.js/dist/tippy.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleNotch, faCircleXmark, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import classNames from 'classnames/bind'
 
 import AccountItem from '~/components/AccountItem'
 import { Wrapper as PopperWrapper } from '~/components/Popper'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleNotch, faCircleXmark, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-
 import styles from './Search.module.scss'
-import classNames from 'classnames/bind'
+import { useDebounce } from '~/hooks'
+import * as searchService from '~/apiServices/searchService'
 
 const cx = classNames.bind(styles)
 
@@ -21,23 +22,23 @@ function Search() {
 
     const searchRef = useRef()
 
+    const debounce = useDebounce(searchValue, 1000)
+
     useEffect(() => {
-        if (!searchValue) {
+        if (!debounce) {
             setSearchResults([])
             return
         }
         setLoading(true)
         // Call API
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)
-            .then((res) => res.json())
-            .then((res) => {
-                setSearchResults(res.data)
-                setLoading(false)
-            })
-            .catch(() => {
-                setLoading(false)
-            })
-    }, [searchValue])
+        const fetchApi = async () => {
+            const result = await searchService.search(debounce)
+
+            setSearchResults(result)
+            setLoading(false)
+        }
+        fetchApi()
+    }, [debounce])
 
     const handleClear = () => {
         setSearchValue('')
@@ -47,7 +48,7 @@ function Search() {
 
     const handleInputSearch = (e) => {
         const value = e.target.value
-        if (value == false) {
+        if (value === false) {
             setSearchValue(value.trim())
         } else {
             setSearchValue(value)
