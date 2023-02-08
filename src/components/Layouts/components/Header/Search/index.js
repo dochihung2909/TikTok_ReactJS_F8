@@ -47,11 +47,10 @@ function Search() {
     }
 
     const handleInputSearch = (e) => {
-        const value = e.target.value
-        if (value === false) {
-            setSearchValue(value.trim())
-        } else {
-            setSearchValue(value)
+        const searchValue = e.target.value
+        // eslint-disable-next-line eqeqeq
+        if (!searchValue.startsWith(' ')) {
+            setSearchValue(searchValue)
         }
     }
 
@@ -94,7 +93,7 @@ function Search() {
                 )}
                 {loading && <FontAwesomeIcon className={cx('loading')} icon={faCircleNotch}></FontAwesomeIcon>}
                 <Tippy content="Search">
-                    <button className={cx('search-btn')}>
+                    <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
                         <FontAwesomeIcon icon={faMagnifyingGlass}></FontAwesomeIcon>
                     </button>
                 </Tippy>

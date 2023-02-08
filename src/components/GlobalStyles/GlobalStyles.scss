@@ -61,6 +61,7 @@
     --primary-btn-color: rgba(254, 44, 85, 1);
     --default-layout-horizontal-spacer: 24px;
     --tooltip-color: rgba(84, 84, 84, 0.92);
+    --font-family: 'IBM Plex Sans', ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
 }
 
 * {
@@ -75,7 +76,7 @@ html {
 }
 
 body {
-    font-family: 'IBM Plex Sans', ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+    font-family: var(--font-family);
     font-size: 1.6rem;
     line-height: 2.2rem;
     text-rendering: optimizeSpeed;
@@ -84,7 +85,7 @@ body {
 button,
 input,
 [tabindex] {
-    font-family: 'IBM Plex Sans', ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+    font-family: var(--font-family);
     outline: none;
     border: none;
     background: transparent;

@@ -1,7 +1,5 @@
 import { Fragment } from 'react'
 import classNames from 'classnames/bind'
-import styles from './Header.module.scss'
-import images from '~/assets/images'
 import Tippy from '@tippyjs/react'
 import 'tippy.js/dist/tippy.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -15,14 +13,17 @@ import {
     faVideo,
 } from '@fortawesome/free-solid-svg-icons'
 import { faCircleQuestion, faKeyboard, faMoon, faUser } from '@fortawesome/free-regular-svg-icons'
-
 import { Link } from 'react-router-dom'
+
 import { Menu } from '~/components/Popper'
 import Button from '~/components/Button'
 import Toggle from '~/components/Button/Toggle'
 import { InboxIcon, MessageIcon, PlusIcon } from '~/components/Icons'
 import Image from '~/components/Image'
+import images from '~/assets/images'
+import styles from './Header.module.scss'
 import Search from './Search'
+import routes from '~/config/routes'
 
 const cx = classNames.bind(styles)
 
@@ -68,12 +69,12 @@ function Header() {
         {
             icon: <FontAwesomeIcon icon={faUser} />,
             title: 'View profile',
-            to: '/userProfile',
+            to: routes.userProfile,
         },
         {
             icon: <FontAwesomeIcon icon={faCoins} />,
             title: 'Get Coins',
-            to: '/coins',
+            to: routes.coins,
         },
         {
             icon: <FontAwesomeIcon icon={faVideo} />,
@@ -82,13 +83,13 @@ function Header() {
         {
             icon: <FontAwesomeIcon icon={faGear} />,
             title: 'Settings',
-            to: '/setting',
+            to: routes.setting,
         },
         ...MENU_ITEMS,
         {
             icon: <FontAwesomeIcon icon={faSignOut} />,
             title: 'Log out',
-            to: '/logout',
+            to: routes.logout,
             separate: true,
         },
     ]
@@ -96,7 +97,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to="/">
+                <Link to={routes.home}>
                     <img src={images.logo} className={cx('logo')} alt="Tiktok" />
                 </Link>
                 {/* Search */}

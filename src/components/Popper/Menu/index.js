@@ -54,6 +54,7 @@ function Menu({ items = [], children }) {
             delay={[0, 700]}
             interactive
             placement="bottom-end"
+            hideOnClick="false"
             onHide={() => {
                 setHistory([{ data: items }])
             }}
