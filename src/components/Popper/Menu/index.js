@@ -10,7 +10,9 @@ import { useState, useRef } from 'react'
 
 const cx = classNames.bind(styles)
 
-function Menu({ items = [], children }) {
+const defaultFn = () => {}
+
+function Menu({ items = [], children, hideOnClick = false, onChange = defaultFn }) {
     const [history, setHistory] = useState([{ data: items }])
     const current = history[history.length - 1]
 
@@ -46,7 +48,7 @@ function Menu({ items = [], children }) {
                 <div animation="fade" className={cx('menu-list')} tabIndex="-1" {...attrs}>
                     <PopperWrapper className={cx('menu-popper')}>
                         {current.title && <Header title={current.title} onBack={handleBack} />}
-                        {renderItem()}
+                        <div className={cx('menu-body')}>{renderItem()}</div>
                     </PopperWrapper>
                 </div>
             )}

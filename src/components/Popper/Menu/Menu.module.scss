@@ -1,3 +1,5 @@
+$header-height: 50px;
+
 .menu-list {
     min-width: 224px;
 
@@ -29,13 +31,18 @@
     padding-bottom: 8px;
 }
 
+.menu-body {
+    overflow-y: auto;
+}
+
 // Header
 .header {
-    height: 50px;
+    height: $header-height;
     display: flex;
+    flex-shrink: 0;
     align-items: center;
-    width: 100%;
     justify-content: center;
+    width: 100%;
     position: relative;
     font-weight: 700;
     font-size: 1.8rem;

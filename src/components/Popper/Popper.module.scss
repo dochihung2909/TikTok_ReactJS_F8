@@ -7,6 +7,6 @@
     background-color: var(--white);
     box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
     margin-top: -4px;
-    overflow: hidden;
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 }
