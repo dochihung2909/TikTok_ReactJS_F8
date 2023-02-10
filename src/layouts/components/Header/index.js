@@ -23,7 +23,7 @@ import Image from '~/components/Image'
 import images from '~/assets/images'
 import styles from './Header.module.scss'
 import Search from './Search'
-import routes from '~/config/routes'
+import config from '~/config/'
 
 const cx = classNames.bind(styles)
 
@@ -69,12 +69,12 @@ function Header() {
         {
             icon: <FontAwesomeIcon icon={faUser} />,
             title: 'View profile',
-            to: routes.userProfile,
+            to: config.routes.userProfile,
         },
         {
             icon: <FontAwesomeIcon icon={faCoins} />,
             title: 'Get Coins',
-            to: routes.coins,
+            to: config.routes.coins,
         },
         {
             icon: <FontAwesomeIcon icon={faVideo} />,
@@ -83,13 +83,13 @@ function Header() {
         {
             icon: <FontAwesomeIcon icon={faGear} />,
             title: 'Settings',
-            to: routes.setting,
+            to: config.routes.setting,
         },
         ...MENU_ITEMS,
         {
             icon: <FontAwesomeIcon icon={faSignOut} />,
             title: 'Log out',
-            to: routes.logout,
+            to: config.routes.logout,
             separate: true,
         },
     ]
@@ -97,7 +97,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to={routes.home}>
+                <Link to={config.routes.home}>
                     <img src={images.logo} className={cx('logo')} alt="Tiktok" />
                 </Link>
                 {/* Search */}
