@@ -1,3 +1,13 @@
+import { Menu } from '~/components/Popper'
+import Button from '~/components/Button'
+import Toggle from '~/components/Button/Toggle'
+import { InboxIcon, MessageIcon, PlusIcon } from '~/components/Icons'
+import Image from '~/components/Image'
+import images from '~/assets/images'
+import styles from './Header.module.scss'
+import Search from './Search'
+import config from '~/config/'
+
 import { Fragment } from 'react'
 import classNames from 'classnames/bind'
 import Tippy from '@tippyjs/react'
@@ -15,16 +25,6 @@ import {
 import { faCircleQuestion, faKeyboard, faMoon, faUser } from '@fortawesome/free-regular-svg-icons'
 import { Link } from 'react-router-dom'
 
-import { Menu } from '~/components/Popper'
-import Button from '~/components/Button'
-import Toggle from '~/components/Button/Toggle'
-import { InboxIcon, MessageIcon, PlusIcon } from '~/components/Icons'
-import Image from '~/components/Image'
-import images from '~/assets/images'
-import styles from './Header.module.scss'
-import Search from './Search'
-import config from '~/config/'
-
 const cx = classNames.bind(styles)
 
 const MENU_ITEMS = [
@@ -32,7 +32,7 @@ const MENU_ITEMS = [
         icon: <FontAwesomeIcon icon={faEarthAsia}></FontAwesomeIcon>,
         title: 'English',
         children: {
-            title: 'Language',
+            title: 'Language123',
             data: [
                 {
                     code: 'en',
