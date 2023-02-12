@@ -42,24 +42,29 @@ function Menu({ items = [], children, hideOnClick = false, onChange = defaultFn 
         })
     }
 
+    const renderResult = (attrs) => (
+        <div animation="fade" className={cx('menu-list')} tabIndex="-1" {...attrs}>
+            <PopperWrapper className={cx('menu-popper')}>
+                {history.length > 1 && <Header title={current.title} onBack={handleBack} />}
+                <div className={cx('menu-body')}>{renderItem()}</div>
+            </PopperWrapper>
+        </div>
+    )
+
+    // Reset menu to first page
+    const handleResetMenu = () => {
+        setHistory([{ data: items }])
+    }
+
     return (
         <Tippy
-            render={(attrs) => (
-                <div animation="fade" className={cx('menu-list')} tabIndex="-1" {...attrs}>
-                    <PopperWrapper className={cx('menu-popper')}>
-                        {history.length > 1 && <Header title={current.title} onBack={handleBack} />}
-                        <div className={cx('menu-body')}>{renderItem()}</div>
-                    </PopperWrapper>
-                </div>
-            )}
+            render={renderResult}
             offset={[10, 10]}
             delay={[0, 700]}
             interactive
             placement="bottom-end"
             hideOnClick={hideOnClick}
-            onHide={() => {
-                setHistory([{ data: items }])
-            }}
+            onHide={handleResetMenu}
         >
             {children}
         </Tippy>

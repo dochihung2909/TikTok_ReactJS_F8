@@ -22,23 +22,23 @@ function Search() {
 
     const searchRef = useRef()
 
-    const debounce = useDebounce(searchValue, 1000)
+    const debounceValue = useDebounce(searchValue, 1000)
 
     useEffect(() => {
-        if (!debounce) {
+        if (!debounceValue) {
             setSearchResults([])
             return
         }
         setLoading(true)
         // Call API
         const fetchApi = async () => {
-            const result = await searchService.search(debounce)
+            const result = await searchService.search(debounceValue)
 
             setSearchResults(result)
             setLoading(false)
         }
         fetchApi()
-    }, [debounce])
+    }, [debounceValue])
 
     const handleClear = () => {
         setSearchValue('')
