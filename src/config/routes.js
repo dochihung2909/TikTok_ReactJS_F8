@@ -8,6 +8,7 @@ const routes = {
     userProfile: '/userProfile',
     coins: '/coins',
     setting: '/setting',
+    live: '/live',
     logout: '/logout',
 }
 
