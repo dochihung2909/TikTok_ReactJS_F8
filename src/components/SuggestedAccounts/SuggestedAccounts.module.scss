@@ -1,0 +1,93 @@
+.wrapper {
+    padding: 16px 0;
+    position: relative;
+    color: var(--text-75-color);
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 8px;
+        right: 8px;
+        height: 1px;
+        background-color: var(--line-color);
+    }
+
+    .label {
+        font-size: 1.4rem;
+        margin-bottom: 8px;
+        padding: 0 8px;
+        font-weight: 700;
+        line-height: 2rem;
+    }
+
+    .more-btn {
+        font-size: 1.4rem;
+        color: var(--primary-color);
+        font-weight: 600;
+        line-height: 2rem;
+        padding: 0 8px;
+        margin-top: 8px;
+        cursor: pointer;
+    }
+}
+
+.account-item {
+    padding: 8px;
+    color: var(--text-75-color);
+    display: flex;
+    border-radius: 4px;
+
+    &:hover {
+        background-color: var(--hover-color);
+    }
+}
+
+.account-avt {
+    margin-right: 12px;
+    display: flex;
+
+    & > img {
+        display: flex;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+}
+
+.account-info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .account-username {
+        font-weight: 700;
+        color: var(--text-color);
+        font-size: 1.6rem;
+        max-width: 260px;
+        display: flex;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        margin-top: -2px;
+        font-family: SofiaPro, Arial, Tahoma, PingFangSC, sans-serif;
+
+        .check {
+            margin-left: 4px;
+            color: var(--check-color);
+            font-size: 1.4rem;
+            margin-bottom: 1px;
+        }
+    }
+
+    .account-name {
+        font-weight: 400;
+        font-size: 1.2rem;
+        line-height: 1;
+        max-width: 260px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+}

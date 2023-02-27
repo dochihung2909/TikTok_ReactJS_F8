@@ -52,16 +52,18 @@
     --default-layout-header-height: 60px;
     --default-layout-width: 1150px;
     --text-color: rgb(22, 24, 35);
+    --text-75-color: rgba(22, 24, 35, 0.75);
     --subtext-color: rgba(22, 24, 35, 0.5);
     --secondary-color: #a7a7ab;
     --black: #000;
     --white: #fff;
     --hover-color: rgba(22, 24, 35, 0.03);
+    --line-color: rgba(22, 24, 35, 0.12);
     --check-color: rgb(32, 213, 236);
     --primary-color: rgba(254, 44, 85, 1);
     --default-layout-horizontal-spacer: 24px;
     --tooltip-color: rgba(84, 84, 84, 0.92);
-    --font-family: 'IBM Plex Sans', ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+    --font-family: 'IBM Plex Sans', 'ProximaNova', Arial, Tahoma, PingFangSC, sans-serif;
 }
 
 * {
